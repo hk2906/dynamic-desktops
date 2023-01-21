@@ -11,3 +11,9 @@ function numberDesktopsChanged(old_number)
     }
 }
 
+function installDynamicDesktop(){
+    // Changing the number of desktops will call a function
+    workspace.numberDesktopsChanged.connect(numberDesktopsChanged);
+}
+
+installDynamicDesktop();
