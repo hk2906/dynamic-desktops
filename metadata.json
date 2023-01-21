@@ -1,0 +1,23 @@
+ {
+    "KPlugin": {
+        "Name": "Dynamic Desktops",
+        "Description": "Script to automatically add & remove additional virtual desktops.  Includes the option to maximize windows to their own virtual desktops. ",
+        "Icon": "preferences-system-windows",
+
+        "Authors": [
+            {
+                "Email": "contact@harrykelly.me",
+                "Name": "Harry Kelly"
+            }
+        ],
+        "Id": "dynamic-desktops",
+        "ServiceTypes": [
+            "KWin/Script"
+        ],
+        "Version": "1.0",
+        "Licsense": "GPLv3",
+        "Website": "https://github.com/username/myscript"
+    },
+    "X-Plasma-API": "javascript",
+    "X-Plasma-MainScript": "code/main.js"
+}
