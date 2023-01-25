@@ -14,6 +14,14 @@ function removeDesktop(i) {
     desktopState.ourChange = false;
 }
 
+function renameDesktop(i, string) {
+    desktopState.ourChange = true;
+    createDesktop(i+1, string);
+    removeDesktop(i);
+    desktopState.ourChange = false;
+}
+
+
 function numberDesktopsChanged(old_number)
 {
     // If the user has changed the number of desktops
