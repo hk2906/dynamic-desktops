@@ -2,6 +2,8 @@ var desktopState = {
     ourChange: false
 }
 
+var dynamicDesktopName = " ";
+
 function createDesktop(i, string) {
     desktopState.ourChange = true;
     workspace.createDesktop(i, string);
@@ -21,12 +23,24 @@ function renameDesktop(i, string) {
     desktopState.ourChange = false;
 }
 
+function getNextUserDesktopNumber() {
+    count = 0;
+    for (i = 0; i < workspace.desktops; i++) {
+        if (workspace.desktopName(i) != dynamicDesktopName) {
+            count++;
+        }
+    }
+    return count;
+}
 
 function numberDesktopsChanged(old_number)
 {
     // If the user has changed the number of desktops
     if (!desktopState.ourChange) {
-
+            if (workspace.desktops > old_number) {
+                name = "Desktop " + getNextUserDesktopNumber()
+            renameDesktop(workspace.desktops, name);
+            }
         }
     }
 }
