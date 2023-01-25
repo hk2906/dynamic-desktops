@@ -8,6 +8,12 @@ function createDesktop(i, string) {
     desktopState.ourChange = false;
 }
 
+function removeDesktop(i) {
+    desktopState.ourChange = true;
+    workspace.removeDesktop(i)
+    desktopState.ourChange = false;
+}
+
 function numberDesktopsChanged(old_number)
 {
     // If the user has changed the number of desktops
