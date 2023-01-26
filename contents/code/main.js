@@ -39,7 +39,7 @@ function numberDesktopsChanged(old_number)
     if (!desktopState.ourChange) {
         if (workspace.desktops > old_number) {
             name = "Desktop " + getNextUserDesktopNumber()
-        renameDesktop(workspace.desktops, name);
+            renameDesktop(workspace.desktops, name);
         }
     }
 }
