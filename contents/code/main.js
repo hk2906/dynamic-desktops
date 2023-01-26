@@ -16,9 +16,19 @@ function removeDesktop(i) {
     desktopState.ourChange = false;
 }
 
+function moveAllWindows(source, destination) {
+    var windows = workspace.clientList();
+	for (var i = 0; i < windows.length; ++i) {
+		if (windows[i].desktop == source) {
+            windows[i].desktop = destination;
+        }
+    }
+}
+
 function renameDesktop(i, string) {
     desktopState.ourChange = true;
     createDesktop(i+1, string);
+    moveAllWindows(i, i+1);
     removeDesktop(i);
     desktopState.ourChange = false;
 }
