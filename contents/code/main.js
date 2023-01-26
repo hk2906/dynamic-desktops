@@ -37,10 +37,9 @@ function numberDesktopsChanged(old_number)
 {
     // If the user has changed the number of desktops
     if (!desktopState.ourChange) {
-            if (workspace.desktops > old_number) {
-                name = "Desktop " + getNextUserDesktopNumber()
-            renameDesktop(workspace.desktops, name);
-            }
+        if (workspace.desktops > old_number) {
+            name = "Desktop " + getNextUserDesktopNumber()
+        renameDesktop(workspace.desktops, name);
         }
     }
 }
