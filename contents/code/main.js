@@ -78,11 +78,44 @@ function pruneDynamicDesktops() {
         }
     }
 }
+
+function clientDesktopChanged(client) {
+	return function() {
+        pruneDynamicDesktops();
+
+		if (! desktopIsEmpty(workspace.desktops)) {
+			createDynamicDesktop();
+		}
+	}
+}
+
+function registerClient(client) {
+	if (client === null) {
+		// just in case
+		return;
+	}
+
+	if (client.skipPager) {
+		//ignore hidden windows
+		return;
+	}
+
+	// add a new desktop for a client too right
+	if (client.desktop >= workspace.desktops) {
+        createDynamicDesktop();
+    }
+
+	// subscribe the client to create desktops when desktop switched
+	client.desktopChanged.connect(clientDesktopChanged(client))
+}
 function installDynamicDesktop(){
     createDesktop(workspace.desktops, dynamicDesktopName);
 
     // Changing the number of desktops will call a function
     workspace.numberDesktopsChanged.connect(numberDesktopsChanged);
+
+    // Moving a client to a new desktop will call a function
+    workspace.clientList().forEach(registerClient);
 }
 
 installDynamicDesktop();
