@@ -69,6 +69,15 @@ function desktopIsEmpty(desktop) {
     }
     return true;
 }
+
+function pruneDynamicDesktops() {
+    for (i=1; i <= workspace.desktops; i++) {
+        if (workspace.desktopName(i) == dynamicDesktopName & desktopIsEmpty(i)) {
+            print("removing " + i + " current = " + workspace.currentDesktop)
+            removeDesktop(i);
+        }
+    }
+}
 function installDynamicDesktop(){
     createDesktop(workspace.desktops, dynamicDesktopName);
 
