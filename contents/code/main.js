@@ -33,6 +33,10 @@ function renameDesktop(i, string) {
     desktopState.ourChange = false;
 }
 
+function createDynamicDesktop() {
+    createDesktop(workspace.desktops+1, dynamicDesktopName);
+}
+
 function getNextUserDesktopNumber() {
     count = 0;
     for (i = 0; i < workspace.desktops; i++) {
