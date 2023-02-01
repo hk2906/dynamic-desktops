@@ -60,6 +60,15 @@ function numberDesktopsChanged(old_number)
     }
 }
 
+function desktopIsEmpty(desktop) {
+    var windows = workspace.clientList();
+	for (var i = 0; i < windows.length; ++i) {
+		if (windows[i].desktop == desktop) {
+            return false;
+        }
+    }
+    return true;
+}
 function installDynamicDesktop(){
     createDesktop(workspace.desktops, dynamicDesktopName);
 
