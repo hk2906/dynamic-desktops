@@ -47,8 +47,7 @@ function getNextUserDesktopNumber() {
     return count;
 }
 
-function numberDesktopsChanged(old_number)
-{
+function numberDesktopsChanged(old_number) {
     // If the user has changed the number of desktops
     if (!desktopState.ourChange) {
         // If they added one
@@ -109,7 +108,7 @@ function registerClient(client) {
 	client.desktopChanged.connect(clientDesktopChanged(client))
 }
 function installDynamicDesktop(){
-    createDesktop(workspace.desktops, dynamicDesktopName);
+    createDynamicDesktop();
 
     // Changing the number of desktops will call a function
     workspace.numberDesktopsChanged.connect(numberDesktopsChanged);
