@@ -1,5 +1,5 @@
 # KWin Dynamic Desktops
-KWin script to automatically add &amp; remove additional virtual desktops.  Includes the option to maximize windows to their own virtual desktops.  Currently a work in progress.
+KWin script to automatically add &amp; remove additional virtual desktops.  Includes the option to maximize windows to their own virtual desktops.  Work on this project is currently on pause whilst I complete my final university assessments.
 
 Due to the incredibly sparse documentation for the KWin scripting API, and debugging being very awkward, I don't see a minimum viable product based on my current work being possible.  I'm about to start work combining two scripts that have the features required for a MVP into one script, such that they are compatible with each other.  Once that is complete, I will resume attempts to improve the features.
 
